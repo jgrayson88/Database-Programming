@@ -17,11 +17,12 @@ public class Product implements Serializable {
     private String ProductName;
     private String ProductDescription;
     private double ProductPrice;
+    private String ProductImage;
 
     public Product() { 
 
     }
-
+    
     public Long getId() {
         return ProductID;
     }
@@ -54,17 +55,6 @@ public class Product implements Serializable {
         return ProductDescription;
     }
 
-    public String getArtistName() {
-        String artistName = 
-                ProductDescription.substring(0, ProductDescription.indexOf(" - "));
-        return artistName;
-    }
-
-    public String getAlbumName() {
-        String albumName = 
-                ProductDescription.substring(ProductDescription.indexOf(" - ") + 3);
-        return albumName;
-    }
 
     public void setPrice(double price) {
         this.ProductPrice = price;
@@ -79,13 +69,17 @@ public class Product implements Serializable {
         return currency.format(ProductPrice);
     }
     
+    public String getImage() {
+        return ProductImage;
+    }
+
+    public void setImage(String image) {
+        this.ProductImage = image;
+    }
     public String getImageURL() {
-        String imageURL = "/musicStore/images/" + ProductCode + "_cover.jpg";
+        String imageURL = "/JGAR_clothing/images/" + ProductCode + ".jpg";
         return imageURL;
     }
 
-    public String getProductType() {
-        return "Audio CD";
-    }
 
 }

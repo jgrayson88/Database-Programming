@@ -5,6 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import java.util.List;
+import murach.business.Cart;
+import murach.business.LineItem;
 
 import murach.data.ProductIO;
 import murach.business.Product;
@@ -23,19 +25,17 @@ public class ProductsServlet extends HttpServlet {
         // get current action
         String action = request.getParameter("action");
         if (action == null) {
-            action = "displayProducts";  // default action
+            //action = "displayProducts";  // default action
         }
         
         // perform action and set URL to appropriate page
-        if (action.equals("displayProducts")) {            
-            // get list of users            
-            // set as a request attribute;
-            // forward to products.jsp
+        if (action.equals("getProduct")) {            
+            String productCode = request.getParameter("productCode");
+            Product product = ProductDB.selectProduct(productCode);
+            session.setAttribute("product", product);
+            url = "/product.jsp";
 
-            List<Product> products = ProductDB.selectProducts();
-            session.setAttribute("products", products);
-
-            url = "/products.jsp";
+            
         } 
         else if (action.equals("goToAddProduct")) {
             url = "/addProducts.jsp";
@@ -58,7 +58,7 @@ public class ProductsServlet extends HttpServlet {
             session.setAttribute("product", product);           
             url = "/deleteProduct.jsp";
         }
-        else if (action.equals("insertProduct")) {
+        else if (action.equals("register")) {
             // update user in database
             // get current user list and set as request attribute
             // forward to index.jsp
@@ -131,6 +131,28 @@ public class ProductsServlet extends HttpServlet {
             ProductDB.delete(product);
             List<Product> products = ProductDB.selectProducts();
             session.setAttribute("products", products);
+        }
+        if (action.equals("addToCart")) {
+            String productCode = request.getParameter("productCode");
+            //String quantityString = request.getParameter("quantity");
+
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+            }
+
+            //String path = sc.getRealPath("/WEB-INF/products.txt");
+            //Product product = ProductIO.getProduct(productCode, path);
+            Product product = ProductDB.selectProduct(productCode);
+
+            LineItem lineItem = new LineItem();
+            lineItem.setProduct(product);
+            //lineItem.setQuantity(quantity);
+            //if (quantity > 0) {
+            cart.addItem(lineItem);
+
+            session.setAttribute("cart", cart);
+            url = "/shoppig/cart.jsp";
         }
         
         getServletContext()

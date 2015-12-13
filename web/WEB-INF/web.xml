@@ -4,9 +4,25 @@
         <servlet-name>ProductsServlet</servlet-name>
         <servlet-class>murach.product.ProductsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>murach.product.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>murach.product.UserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductsServlet</servlet-name>
-        <url-pattern>/product_maintenance</url-pattern>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
