@@ -60,12 +60,12 @@ public class ProductDB {
             em.close();
         }
     }
-    
+    //check if product exists based on product code
     public static boolean productExists(String code) {
         Product product = selectProduct(code);
         return product != null;
     }
-    
+    //select product
     public static Product selectProduct(String code) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String qString = "SELECT p FROM Product p " +

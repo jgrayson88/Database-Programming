@@ -16,8 +16,9 @@
 		<title>  </title>
 		<link href="./css/bootstrap.css" type="text/css" rel="stylesheet">
 		<link href="./css/product.css" type="text/css" rel="stylesheet">
-		
+		<link rel="stylesheet" href="./css/style_checkout.css">
 		<script src="js/modernizr.custom.js"></script>
+                <script src="./js/index_checkout.js"></script>
 	</head>
 
 	<body>
@@ -109,35 +110,26 @@
 	
 			<!--Content for user table-->
                         <div class="offer display">
-                            <div class="pull-right" id="backtosearch">
-                                            <button type="button" onclick="location.href='index.jsp'" class="btn btn-default navbar-btn">
-                                                    <span class="glyphicon glyphicon-chevron-left"></span> Back
-						</button>
-					</div>
+                            
                         
-                        <p style="text-align:center;"><font size ="8" > User Profile Information </font></p>
-                        <br><br>
-                        <p style="text-align:center"><font size ="5" >User Name:   ${user.userName}</font></p>
-                        <br>
-                        <br>
-                        <p style="text-align:center;"><font size ="5" >First Name:  ${user.firstName}</font></p>
-                        <br>
-                        <br>
-                        <p style="text-align:center;"><font size ="5" >Last Name:   ${user.lastName}</font></p>
-                        <br>
-                        <br>
-                        <p style="text-align:center;"><font size ="5" >Phone Number:  ${user.phone}</font></p>
-                        <br>
-                        <br>
-                        <p style="text-align:center;"><font size ="5" >Birth Date: ${user.birth}</font></p>
-                        <br>
-                        <br>
-                        <p style="text-align:center;"><font size ="5" >Email: ${user.email}</font></p>
-                        <br>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        
+	<h1 style="text-align:center;">Thanks for your order!</h1>
+<br>
+<br>
+
+<h2 style="text-align:center;"> Your order has been placed and is being processed. When the item(s) are shipped, you will receive an email with the details. <h2>
+
+<br>
+
+	<h2 style="text-align:center;"> Best, </h2>
+	<h2 style="text-align:center;"> Janina & Ana </h2>
+
+<br>
+<br>
+
+<button type="submit" onclick="location.href='index.jsp'">Close </button>
                         
                         </div>
-			
 
                                              
    
@@ -299,5 +291,6 @@
 	</body>
 
 </html>
+
 
 

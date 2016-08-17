@@ -4,6 +4,8 @@ import java.sql.*;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+//works with UserDB.java to get user data to db
+//using JPA to access db
 public class DBUtil {
     
     private static final EntityManagerFactory emf =

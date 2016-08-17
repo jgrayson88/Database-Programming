@@ -59,12 +59,59 @@ public class CartServlet extends HttpServlet {
             }
 
             session.setAttribute("cart", cart);
-            url = "/shoppigcart/cart.jsp";
+            url = "/cart.jsp";
         }
         else if (action.equals("checkout")) {
-            String grandTotal = request.getParameter("grandTotal");
-            session.setAttribute("grandTotal", grandTotal);
-            url = "/checkout/checkout.jsp";
+            //String grandTotal = request.getParameter("grandTotal");
+            Cart cart = (Cart) session.getAttribute("cart");
+            Invoice invoice = new Invoice();
+            invoice.setLineItems(cart.getItems());
+            
+        
+            session.setAttribute("invoice", invoice);
+            
+            //session.setAttribute("grandTotal", grandTotal);
+            url = "/checkout.jsp";
+        }
+        else if (action.equals("completeOrder")) {
+    
+            String FN = request.getParameter("billingFirstName");
+            String LN = request.getParameter("billingLastName");
+            String Company = request.getParameter("billingCompany");
+            String Country = request.getParameter("billingCountry");
+            String Addr1 = request.getParameter("billingAddress1");
+            String Addr2 = request.getParameter("billingAddress2");
+            String City = request.getParameter("billingCity");
+            String State = request.getParameter("billingState");
+            String Zip = request.getParameter("billingZip");
+            String phone = request.getParameter("billingPhone");
+            
+            Checkout orderInfo = new Checkout();
+            
+            
+            orderInfo.setBillingFirstName(FN);
+            orderInfo.setBillingLastName(LN);
+            orderInfo.setBillingCompany(Company);
+            orderInfo.setBillingCountry(Country);
+            orderInfo.setBillingAddress1(Addr1);
+            orderInfo.setBillingAddress2(Addr2);
+            orderInfo.setBillingCity(City);
+            orderInfo.setBillingState(State);
+            orderInfo.setBillingZip(Zip);
+            orderInfo.setPhone(phone);
+
+            CheckoutDB.insert(orderInfo);
+            
+            Invoice invoice = (Invoice)session.getAttribute("invoice");
+        
+            session.setAttribute("invoice", invoice);
+            String total = request.getParameter("total");
+            
+            invoice.setTotal(total);
+            invoice.setPhone(phone);
+            InvoiceDB.insert(invoice);
+
+            url = "/confirmation.jsp";
         }
  
         getServletContext()

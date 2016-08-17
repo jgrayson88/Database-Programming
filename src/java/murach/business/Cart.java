@@ -11,14 +11,18 @@ public class Cart implements Serializable {
         items = new ArrayList<LineItem>();
     }
 
+    //retrieves shopping cart items
     public ArrayList<LineItem> getItems() {
         return items;
     }
 
+    //counts items in cart
     public int getCount() {
         return items.size();
     }
 
+    //gets item and its info from LineItem class
+    //adds item to shopping cart
     public void addItem(LineItem item) {
         String code = item.getProduct().getCode();
         int quantity = item.getQuantity();
