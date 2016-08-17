@@ -96,13 +96,13 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<a href=""><img src="http://c.nordstromimage.com/Assets/Web-Ready-Slices/11-16-15-p03-cid1115150995-7-adam-432b9075-6822-486e-b922-a54c01892ca3-fil-file.jpg?Version=1" alt=""></a>
+							<a href=""><img src="scrollerImg1.jpg" alt=""></a>
 						</div>
 						<div class="item">
-							<a href=""><img src="http://c.nordstromimage.com/Assets/Web-Ready-Slices/11-16-15-p02-cid1115150994-7-adam-174c0dac-e651-4981-a03f-a54c018928a5-fil-file.jpg?Version=1" alt=""></a>
+							<a href=""><img src="scrollerImg2.jpg" alt=""></a>
 						</div>
 						<div class="item">
-							<a href=""><img src="http://c.nordstromimage.com/Assets/Web-Ready-Slices/11-16-15-p05-cid1115150997-7-adam-69de721f-a01b-4430-ba29-a54c01893051-fil-file.jpg?Version=1" alt=""></a>
+							<a href=""><img src="scrollerImg3.jpg" alt=""></a>
 						</div>
 					</div>
 					<!-- Controls / Prev-Next -->
@@ -114,7 +114,7 @@
 				<ul class="grid cs-style-3 col-md-3">
 					<li>
 						<figure>
-							<img id="howto" src="http://c.nordstromimage.com/Assets/Web-Ready-Slices/11-26-15-p01-cid1125151447-holiday-black-friday-landing-page-7-adam-ac468044-23ef-49e1-8015-a557014474b6-fil-file.jpg?Version=1" alt="">
+							<img id="howto" src="blackfridaysaleImg.jpg" alt="">
 							<figcaption>
 								<h4>Black Friday Sale </h4>
 								<span>Shop Now</span>
