@@ -9,7 +9,7 @@ import murach.business.User;
 
 //adding, updating, and selecting user from database
 //checking if user exists in database based on email
-//uses DBUtil.java to access database using JPA
+//uses DBUtil.java to access database using JPA 
 public class UserDB {
     
     public static void insert(User user) {
